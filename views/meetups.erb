@@ -1,0 +1,25 @@
+<h2>Ruby Meetups</h2>
+
+<table class='table table-hover table-striped'>
+  <% if @meetups.any? %>
+    <tr>
+      <th>Name</th>
+      <th>City, Country</th>
+      <th>Target Audience</th>
+      <th># Members</th>
+      <th>Organizer</th>
+    </tr>
+
+    <% @meetups.each do |m| %>
+      <tr>
+        <td><a href='<%=m[:link]%>' target='_blank'><%= m[:name] %></a></td>
+        <td><%= m[:city] %>, <%= m[:country].upcase %></td>
+        <td><%= m[:focus] %></td>
+        <td><%= m[:count] %></td>
+        <td><%= m[:contact] %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    No meetups available
+  <% end %>
+</table>
